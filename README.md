@@ -3,6 +3,19 @@ JPlotFormants
 
 JPlotFormants: Linguistics software to plot formant frequencies. A successor of Peter Ladefoged's original Plot Formants.
 
+How To Build JPlotFormants
+==========================
+
+You need the Java SDK to build the program.
+
+To build:
+
+$ javac *.java
+
+To run:
+
+$ java JPlotFormants
+
 License
 =======
 

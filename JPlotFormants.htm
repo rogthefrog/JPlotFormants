@@ -1,0 +1,190 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+<title>JPlotFormants v1.4 User's Manual</title>
+</head>
+<BODY text=#000000 vLink=#0000ff aLink=#0000aa link=#aa00aa bgColor=#FFFFFF>
+<font size = "+3"><b><center>JPlotFormants v1.4 User's Manual</center></b></font size>
+
+<p>
+<font size = "+2"><b><a name="top">Table of Contents</a></b></font>
+<p>
+<ol>
+<li><a href="#entering">Creating, editing and viewing vowels and formant pairs</a></li>
+<li><a href="#plotting">Plotting formants</a></li>
+<li><a href="#using">Using your plot</a></li>
+<li><a href="#files">Opening/saving formant pair sets</a></li>
+<li><a href="#tips">Practical tips</a></li>
+</ol>
+
+<p>
+<font size = "+2"><b>Manual</b></font>
+<p>
+<ol>
+<li>
+<font size = "+1"><b><a name="entering">Creating, editing and viewing vowels and formant pairs</a></b></font>
+<br><br>
+<ul>
+<li><b>Creating a vowel:</b></li><br>
+In the <b>File</b> menu, select <b><i>Enter/edit formant pairs</i></b>, 
+then click on <b><i>Create new vowel</i></b> in the editing window. Enter 
+formant frequencies and click on <b><i>Accept</i></b>. You can enter 
+as many formant pairs as you want. Click <b><i>Create new vowel</i></b> to 
+enter formants for a new vowel, and <b><i>Done</i></b> when you are 
+done entering formants. 
+<p>
+<li><b>Modifying a vowel description:</b></li><br>
+In the <b>File</b> menu, select <b><i>Enter/edit formant pairs</i></b>. 
+If there are vowels in memory, they will appear in the list at the top of the
+editing window. Click once on the vowel whose description 
+you want to modify. Modify the description and/or symbol and click on <b><i>Accept</i></b>. 
+<p>
+<li><b>Editing formant pairs for a vowel:</b></li><br>
+In the <b>File</b> menu, select <b><i>Enter/edit formant pairs</i></b>, 
+then click on the vowel you wish to edit in the list at the top of editing window. 
+Click on the vowel whose formant pairs you wish to edit, 
+select a formant pair in the box at the bottom of the window, and
+click on <b><i>Edit selected formant pair</i></b>. Enter the changes in formant
+frequencies, then click on <b><i>Accept</i></b>.
+<p>
+<li><b>Viewing formant pairs in memory:</b></li><br>
+In the <b>File</b> menu, select <b><i>Show formants in memory</i></b>. This will open a window 
+showing all the vowels in memory and the formant pairs associated with each of the vowels.
+<p>
+<li><b>Deleting formant pairs for a vowel:</b></li><br>
+In the <b>File</b> menu, select <b><i>Enter/edit formant pairs</i></b>. 
+If there are vowels in memory, they will appear in the list at the top of the
+editing window. Click once on the vowel whose formant pairs
+you wish to delete, select a formant pair in the box at the bottom of the window, and
+click on <b><i>Delete selected formant pair</i></b>.
+<p>
+<li><b>Deleting a vowel:</b></li><br>
+In the <b>File</b> menu, select <b><i>Enter/edit formant pairs</i></b>. 
+If there are vowels in memory, they will appear in the list at the top of the
+editing window. Click once on the vowel you wish to delete, and 
+then click on <b><i>Delete selected formant pair</i></b>.
+<p>
+
+[<a href="#top">Back to the top</a>]
+</ul>
+<br>&nbsp;</li>
+
+<li>
+<font size = "+1"><b><a name="plotting">Plotting formants</a></b></font>
+<br><br>
+<ul>
+<li><b>Plotting formant pairs in memory:</b></li><br>
+In the <b>Plot</b> menu, select <b><i>Plot current set</i></b>. This option is not available 
+if there are no formant pairs in memory.
+<p>
+<li><b>Setting plot options:</b></li><br>
+In the <b>Plot</b> menu, select <b><i>Plot options</i></b>. All numerical values are 
+checked and automatically replaced by default values if they exceed a sensible range. 
+Click on the <b><i>Reset default values</i></b> button to use the default settings (<i><Font size = "-2">Note: 
+only the settings on the visible pane are reset by this button</font></i>). 
+<p>
+<li><b>Plot options:</b><p>
+<ul>
+<li><u>Min/max F1/F2:</u> Set the minimum and maximum frequencies for the F1 and F2 axes.</li>
+<li><u>F1/F2 step:</u> Set the spacing between the tick marks on the F1 and F2 axes.</li>
+<li><u>Plot width/height:</u> Set the width and height of the plot in pixels.</li>
+<li><u>Plot title:</u> Sets an optional title which will be displayed below the plot.</li>
+<li><u>Draw grid:</u> If this option is selected, a grid is drawn on the plot pane.</li>
+<li><u>Draw neither points nor symbols:</u> Individual formants will not be displayed.</li>
+<li><u>Draw symbols:</u> Each formant pair for a given vowel will be represented by the symbol 
+entered for that vowel. If no symbol has been entered, a point will be drawn instead.
+<li><u>Draw points:</u> Each formant pair will be represented by a point in one of four possible sizes.</li>
+<li><u>Point size:</u> Sets the size of the points representing each formant pair.</li>
+<li><u>Draw in color:</u> If this option is selected, each vowel's formants are plotted in a different color (up to 8 colors).</li> 
+If more than 8 vowels must be plotted, the (n+8)th vowel is the same color as the nth vowel.</li>
+<li><u>Draw ellipses:</u> If this option is selected, an ellipse is drawn enclosing each vowel's formant plot.</li>
+<li><u>Draw SD bars:</u> If this option is selected, standard deviation bars are drawn.</li>
+<li><u>Draw mean:</u> If this option is selected, the mean of each vowel's formants is drawn.</li>
+<li><u>Draw blob at mean:</u> If <b><i>Draw mean</i></b> is checked, a blob is drawn at the mean of each 
+vowel's formant plot.</li>
+<li><u>Draw large symbol at mean:</u> If <b><i>Draw mean</i></b> is checked, each vowel's symbol is drawn at the mean 
+of the vowel's formant plot in large font. If no symbol is available, a large blob is drawn instead.</li>
+</ul> 
+<p>
+[<a href="#top">Back to the top</a>]
+</ul>
+<br>&nbsp;</li>
+
+<li>
+<font size = "+1"><b><a name="using">Using your plot</a></b></font>
+<br><br>
+<ul>
+<li><b>Print:</b></li><br>
+In the <b>Plot</b> menu, select <b><i>Plot current set</i></b> to plot 
+the formant pairs in memory, then click on <b><i>Print</i></b> at the bottom 
+of the plot window.
+<p>
+<li><b>Save as JPEG:</b></li><br>
+In the <b>Plot</b> menu, select <b><i>Plot current set</i></b> to plot 
+the formant pairs in memory, then click on <b><i>Save as JPEG</i></b> at the bottom  
+of the plot window.
+<p>
+[<a href="#top">Back to the top</a>]
+</ul>
+<br>&nbsp;</li>
+
+<li>
+<font size = "+1"><b><a name="files">Opening/saving formant pair sets</a></b></font>
+<br><br>
+<ul>
+<li><b>Opening a formant pair set:</b></li><br>
+In the <b>File</b> menu, select <b><i>Open formant pair set</i></b>. Select the file you 
+want to open in the dialog that appears.
+<p>
+<li><b>Saving a formant pair set:</b></li><br>
+In the <b>File</b> menu, select <b><i>Save formant pair set as...</i></b>. Enter a file name 
+in the dialog that appears, and then click <b><i>Save</i></b> or press <b>Enter</b>.
+<p>
+[<a href="#top">Back to the top</a>]
+</ul>
+<br>&nbsp;</li>
+
+
+<li>
+<font size = "+1"><b><a name="tips">Practical tips</a></b></font>
+<br><br>
+<ul>
+<li><b>Creating a vowel:</b></li><br>
+If there is no existing vowel in the vowel list, 
+you can simply enter a vowel description and formant frequencies. 
+A new vowel with the description and symbol you entered will be 
+created automatically when you click on <b><i>Accept</i></b>.
+<p>
+<li><b>Modifying a vowel description:</b></li><br>
+You can modify a vowel's description and symbol at any time 
+while you are entering formant pairs for that vowel. Simply modify the 
+current description and/or symbol, and click <b><i>Accept</i></b> to save the 
+changes.
+<p>   
+
+<li><b>Switching between vowels:</b></li><br>
+If there are more than one vowel in memory, you can switch from one to another 
+simply by clicking on the description of the vowel you want to edit in the list 
+at the top of the editing window at any time.
+<p>
+
+<li><b>I can't plot!</b></li><br>
+If the <b><i>Plot current set</i></b> option in the <b>Plot</b> menu is not available, 
+that's because there are no formant pairs in memory. Please <a href="#entering">create a vowel</a> 
+so you can plot its formants.
+<p> 
+
+[<a href="#top">Back to the top</a>]
+</ul>
+<p>
+<br>&nbsp;</li>
+</ol>
+<br><br>
+E-mail the author (Roger Billerey-Mosier) at rogthefrog - at - gmail - dot - com</a><br>
+<a href="http://www.linguistics.ucla.edu/people/grads/billerey/PlotFrog.htm">JPlotFormants website</a><br>
+July 10, 2002</i>
+</body>
+</html>
+

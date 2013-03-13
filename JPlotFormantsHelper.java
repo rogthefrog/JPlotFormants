@@ -22,12 +22,12 @@
 // Decompiled by DJ v3.9.9.91 Copyright 2005 Atanas Neshkov  Date: 13.12.2006 23:08:53
 // Home Page : http://members.fortunecity.com/neshkov/dj.html  - Check often for new version!
 // Decompiler options: packimports(3) 
-// Source File Name:   PlotFrogmantsHelper.java
+// Source File Name:   JPlotFormantsHelper.java
 
-public class PlotFrogmantsHelper
+public class JPlotFormantsHelper
 {
 
-    public PlotFrogmantsHelper()
+    public JPlotFormantsHelper()
     {
     }
 

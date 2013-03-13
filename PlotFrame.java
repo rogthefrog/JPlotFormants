@@ -80,7 +80,7 @@ public class PlotFrame extends JFrame
         setLocation((Toolkit.getDefaultToolkit().getScreenSize().width - i) / 2, (Toolkit.getDefaultToolkit().getScreenSize().height - (j + 70)) / 2);
         setResizable(false);
         setTitle("Formant plot");
-        setIconImage((new ImageIcon("PlotFrogIcon.gif")).getImage());
+        setIconImage((new ImageIcon("JPlotFormantsIcon.gif")).getImage());
         show();
     }
 

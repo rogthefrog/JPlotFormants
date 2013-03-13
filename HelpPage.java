@@ -79,7 +79,7 @@ public class HelpPage
                 launchProgram();
             } else
             {
-                String s = "file:///" + ((new File(".")).getCanonicalPath() + "/PFrogMan.htm").replace('\\', '/');
+                String s = "file:///" + ((new File(".")).getCanonicalPath() + "/JPlotFormants.htm").replace('\\', '/');
                 url = new URL(s);
                 errorMsg = "opening the user's manual.";
                 editorPane.setPage(url);

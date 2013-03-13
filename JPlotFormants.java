@@ -22,7 +22,7 @@
 // Decompiled by DJ v3.9.9.91 Copyright 2005 Atanas Neshkov  Date: 13.12.2006 23:08:53
 // Home Page : http://members.fortunecity.com/neshkov/dj.html  - Check often for new version!
 // Decompiler options: packimports(3) 
-// Source File Name:   PlotFrogmants.java
+// Source File Name:   JPlotFormants.java
 
 import java.awt.*;
 import java.awt.event.*;
@@ -33,11 +33,11 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.text.JTextComponent;
 
-public class PlotFrogmants extends JFrame
+public class JPlotFormants extends JFrame
     implements ActionListener, ItemListener, ListSelectionListener, WindowListener
 {
 
-    public PlotFrogmants()
+    public JPlotFormants()
     {
         super("JPlotFormants");
         MAX_PLOT_WIDTH = (int)((double)Toolkit.getDefaultToolkit().getScreenSize().width * 0.90000000000000002D);
@@ -59,7 +59,7 @@ public class PlotFrogmants extends JFrame
         menuSetup();
         pack();
         setSize(225, 90);
-        setIconImage((new ImageIcon("PlotFrogIcon.gif")).getImage());
+        setIconImage((new ImageIcon("JPlotFormantsIcon.gif")).getImage());
         setResizable(false);
     }
 
@@ -180,7 +180,7 @@ public class PlotFrogmants extends JFrame
 
             public void actionPerformed(ActionEvent actionevent)
             {
-                if(!PlotFrogmantsHelper.isNumber(f1Field.getText()))
+                if(!JPlotFormantsHelper.isNumber(f1Field.getText()))
                     createStatusTextArea.setText("F1 value invalid. Please enter a number between 200 and 800.");
                 f2Field.grabFocus();
             }
@@ -191,10 +191,10 @@ public class PlotFrogmants extends JFrame
 
             public void actionPerformed(ActionEvent actionevent)
             {
-                if(PlotFrogmantsHelper.isNumber(f1Field.getText()) && PlotFrogmantsHelper.isNumber(f2Field.getText()))
+                if(JPlotFormantsHelper.isNumber(f1Field.getText()) && JPlotFormantsHelper.isNumber(f2Field.getText()))
                     saveFormantBtn.grabFocus();
                 else
-                if(!PlotFrogmantsHelper.isNumber(f1Field.getText()))
+                if(!JPlotFormantsHelper.isNumber(f1Field.getText()))
                 {
                     createStatusTextArea.setText("Please enter a value between 200 and 800.");
                     f1Field.grabFocus();
@@ -797,7 +797,7 @@ public class PlotFrogmants extends JFrame
             while(!flag && !flag1) 
             {
                 String s1 = bufferedreader.readLine().toString();
-                if(!s1.startsWith("Plot FRogmants data file"))
+                if(!s1.startsWith("JPlotFormants data file"))
                 {
                     flag = true;
                     break;
@@ -937,7 +937,7 @@ public class PlotFrogmants extends JFrame
         {
             FileWriter filewriter = new FileWriter(file.getPath());
             BufferedWriter bufferedwriter = new BufferedWriter(filewriter);
-            bufferedwriter.write("Plot FRogmants data file\n");
+            bufferedwriter.write("JPlotFormants data file\n");
             for(int i = 0; i < vowelVector.size(); i++)
             {
                 Vowel vowel = (Vowel)vowelVector.elementAt(i);
@@ -1064,7 +1064,7 @@ public class PlotFrogmants extends JFrame
             helppage = new HelpPage(true);
         else
         if(obj == helpMenuItems[2])
-            JOptionPane.showMessageDialog(null, "JPlotFormants v1.4\n(c) Roger Billerey-Mosier 2001\nrogthefrog@mindspring.com\nAfter Plot Formants by P. Ladefoged\nEllipse code help by Marek Przezdziecki", "About JPlotFormants", 1);
+            JOptionPane.showMessageDialog(null, "JPlotFormants v1.4\n(c) Roger Billerey-Mosier 2001\nrogthefrog@gmail.com\nAfter Plot Formants by P. Ladefoged\nEllipse code help by Marek Przezdziecki", "About JPlotFormants", 1);
         else
         if(obj == fileMenuItems[5])
             exitProgram(setHasBeenModified);
@@ -1154,14 +1154,14 @@ public class PlotFrogmants extends JFrame
                 vowelDescriptionListModel.setElementAt(currentVowel.getDescription(), currentVowelIndexInList);
             f1Field.grabFocus();
         } else
-        if(obj == saveFormantBtn && (!PlotFrogmantsHelper.isNumber(f1Field.getText()) || !PlotFrogmantsHelper.isNumber(f2Field.getText())))
+        if(obj == saveFormantBtn && (!JPlotFormantsHelper.isNumber(f1Field.getText()) || !JPlotFormantsHelper.isNumber(f2Field.getText())))
         {
             if(f1Field.getText().equals(""))
             {
                 createStatusTextArea.setText("Please enter a value for F1.");
                 f1Field.grabFocus();
             } else
-            if(!PlotFrogmantsHelper.isNumber(f1Field.getText()))
+            if(!JPlotFormantsHelper.isNumber(f1Field.getText()))
             {
                 createStatusTextArea.setText("You have entered an invalid value for F1.");
                 f1Field.grabFocus();
@@ -1171,13 +1171,13 @@ public class PlotFrogmants extends JFrame
                 createStatusTextArea.setText("Please enter a value for F2.");
                 f2Field.grabFocus();
             } else
-            if(!PlotFrogmantsHelper.isNumber(f2Field.getText()))
+            if(!JPlotFormantsHelper.isNumber(f2Field.getText()))
             {
                 createStatusTextArea.setText("You have entered an invalid value for F2.");
                 f2Field.grabFocus();
             }
         } else
-        if(obj == saveFormantBtn && PlotFrogmantsHelper.isNumber(f1Field.getText()) && PlotFrogmantsHelper.isNumber(f2Field.getText()))
+        if(obj == saveFormantBtn && JPlotFormantsHelper.isNumber(f1Field.getText()) && JPlotFormantsHelper.isNumber(f2Field.getText()))
         {
             boolean flag2 = true;
             Point point1 = null;
@@ -1367,8 +1367,8 @@ public class PlotFrogmants extends JFrame
         {
             System.err.println("Can't set look and feel: " + exception);
         }
-        SplashWindow3 splashwindow3 = new SplashWindow3("PlotFrogSplash.gif", null, 4000);
-        PlotFrogmants plotfrogmants = new PlotFrogmants();
+        SplashWindow3 splashwindow3 = new SplashWindow3("JPlotFormantsSplash.gif", null, 4000);
+        JPlotFormants jplotformants = new JPlotFormants();
     }
 
     private JPanel mainPane;
