@@ -1062,7 +1062,7 @@ public class JPlotFormants extends JFrame
             helppage = new HelpPage(true);
         else
         if(obj == helpMenuItems[2])
-            JOptionPane.showMessageDialog(null, "JPlotFormants v1.4\n(c) Roger Billerey-Mosier 2001\nrogthefrog@gmail.com\nAfter Plot Formants by P. Ladefoged\nEllipse code help by Marek Przezdziecki", "About JPlotFormants", 1);
+            JOptionPane.showMessageDialog(null, "JPlotFormants v1.4.1\n(c) Roger Billerey-Mosier 2001\nrogthefrog@gmail.com\nAfter Plot Formants by P. Ladefoged\nEllipse code help by Marek Przezdziecki", "About JPlotFormants", 1);
         else
         if(obj == fileMenuItems[5])
             exitProgram(setHasBeenModified);
