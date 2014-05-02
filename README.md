@@ -3,6 +3,11 @@ JPlotFormants
 
 JPlotFormants: Linguistics software to plot formant frequencies. A successor of Peter Ladefoged's original Plot Formants.
 
+Code
+====
+
+https://github.com/rogthefrog/JPlotFormants
+
 How To Build JPlotFormants
 ==========================
 
@@ -28,7 +33,7 @@ No guarantees of any kind. This is ancient software with a good deal of bit rot 
 
 Please submit improvements, bug fixes, patches, etc. via pull requests via GitHub.
 
-This source code was lost and reconstructed by decompiling binary class files. This explains the lack of comments and bad variable names.
+The original source code was lost, and what you see here was reconstructed by decompiling binary class files. This explains the lack of comments and bad variable names.
 
 Credits
 =======
