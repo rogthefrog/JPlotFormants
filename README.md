@@ -8,18 +8,45 @@ Code
 
 https://github.com/rogthefrog/JPlotFormants
 
-How To Build JPlotFormants
-==========================
+Building and Running JPlotFormants
+==================================
 
 You need the Java SDK to build the program.
 
-To build:
+Unix-like (including Mac)
+-------------------------
 
-$ javac *.java
+Build:
 
-To run:
+```
+$ ./build.sh 
+```
+This will create a JAR file named JPlotFormants.jar with everything you need in it. Then:
 
-$ java JPlotFormants
+Run:
+
+```
+$ ./run.sh
+```
+
+Windows
+-------
+
+Build:
+
+```
+mkdir bin
+cd src
+javac *.java -d ../bin
+```
+
+Run:
+
+```
+cd bin
+java JPlotFormants
+```
+
 
 License
 =======
