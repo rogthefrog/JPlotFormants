@@ -40,8 +40,8 @@ public class JPlotFormants extends JFrame
     public JPlotFormants()
     {
         super("JPlotFormants");
-        MAX_PLOT_WIDTH = (int)((double)Toolkit.getDefaultToolkit().getScreenSize().width * 0.90000000000000002D);
-        MAX_PLOT_HEIGHT = (int)((double)Toolkit.getDefaultToolkit().getScreenSize().height * 0.80000000000000004D);
+        MAX_PLOT_WIDTH = (int)((double)Toolkit.getDefaultToolkit().getScreenSize().width * 0.9);
+        MAX_PLOT_HEIGHT = (int)((double)Toolkit.getDefaultToolkit().getScreenSize().height * 0.8);
         defaultPlotTitle = "";
         resetDefaultPlotOptions(2);
         initializeVariables();
@@ -54,7 +54,7 @@ public class JPlotFormants extends JFrame
     private void mainWindowSetup()
     {
         mainPane = new JPanel();
-        mainPane.add(new JLabel("Welcome to JPlotFormants v1.4"));
+        mainPane.add(new JLabel("Welcome to JPlotFormants v1.4.1"));
         setContentPane(mainPane);
         menuSetup();
         pack();
@@ -181,7 +181,7 @@ public class JPlotFormants extends JFrame
             public void actionPerformed(ActionEvent actionevent)
             {
                 if(!JPlotFormantsHelper.isNumber(f1Field.getText()))
-                    createStatusTextArea.setText("F1 value invalid. Please enter a number between 200 and 800.");
+                    createStatusTextArea.setText("F1 value invalid. Please enter a number between " + DEFAULT_F1_MIN + " and " + DEFAULT_F1_MAX + ".");
                 f2Field.grabFocus();
             }
 
@@ -191,16 +191,13 @@ public class JPlotFormants extends JFrame
 
             public void actionPerformed(ActionEvent actionevent)
             {
-                if(JPlotFormantsHelper.isNumber(f1Field.getText()) && JPlotFormantsHelper.isNumber(f2Field.getText()))
+                if(JPlotFormantsHelper.isNumber(f1Field.getText()) && JPlotFormantsHelper.isNumber(f2Field.getText())) {
                     saveFormantBtn.grabFocus();
-                else
-                if(!JPlotFormantsHelper.isNumber(f1Field.getText()))
-                {
-                    createStatusTextArea.setText("Please enter a value between 200 and 800.");
+                } else if (!JPlotFormantsHelper.isNumber(f1Field.getText())) {
+                    createStatusTextArea.setText("Please enter a value between " + DEFAULT_F1_MIN + " and " + DEFAULT_F1_MAX + ".");
                     f1Field.grabFocus();
-                } else
-                {
-                    createStatusTextArea.setText("Please enter a value between 500 and 1800.");
+                } else {
+                    createStatusTextArea.setText("Please enter a value between " + DEFAULT_F2_MIN + " and " + DEFAULT_F2_MAX + ".");
                     f2Field.grabFocus();
                 }
             }
@@ -374,12 +371,13 @@ public class JPlotFormants extends JFrame
         drawBlobGroup.add(drawBigSymbolYesNo);
         drawBlobYesNo.setEnabled(drawMean);
         drawBigSymbolYesNo.setEnabled(drawMean);
-        minF1Label = new JLabel("Min. F1 (50 Hz min.):");
-        maxF1Label = new JLabel("Max. F1 (1400 Hz max.):");
+        minF1Label = new JLabel("Min. F1 (" + ABSOLUTE_F1_MIN + " Hz min.):");
+        maxF1Label = new JLabel("Max. F1 (" + ABSOLUTE_F1_MAX + " Hz max.):");
         stepF1Label = new JLabel("F1 step (Hz):");
-        minF2Label = new JLabel("Min. F2 (300 Hz min.):");
-        maxF2Label = new JLabel("Max. F2 (4000 Hz max.):");
+        minF2Label = new JLabel("Min. F2 (" + ABSOLUTE_F2_MIN + " Hz min.):");
+        maxF2Label = new JLabel("Max. F2 (" + ABSOLUTE_F2_MAX + " Hz max.):");
         stepF2Label = new JLabel("F2 step (Hz):");
+        
         plotWidthLabel = new JLabel("Plot width (" + defaultPlotWidth + " pixels = half screen, max = " + MAX_PLOT_WIDTH + "):");
         plotHeightLabel = new JLabel("Plot height (" + defaultPlotHeight + " pixels = half screen, max = " + MAX_PLOT_HEIGHT + "):");
         plotTitleLabel = new JLabel("Plot title:");
@@ -526,12 +524,12 @@ public class JPlotFormants extends JFrame
     {
         if(i != 1)
         {
-            f1Min = 200;
-            f1Max = 800;
-            f1Step = 100;
-            f2Min = 500;
-            f2Max = 1800;
-            f2Step = 200;
+            f1Min = DEFAULT_F1_MIN;
+            f1Max = DEFAULT_F1_MAX;
+            f1Step = DEFAULT_F1_STEP;
+            f2Min = DEFAULT_F2_MIN;
+            f2Max = DEFAULT_F2_MAX;
+            f2Step = DEFAULT_F2_STEP;
             defaultPlotWidth = Toolkit.getDefaultToolkit().getScreenSize().width / 2;
             defaultPlotHeight = Toolkit.getDefaultToolkit().getScreenSize().height / 2;
         }
@@ -659,49 +657,49 @@ public class JPlotFormants extends JFrame
         finally
         {
             boolean flag1 = false;
-            if(f1Min < 200)
+            if(f1Min < ABSOLUTE_F1_MIN)
             {
-                f1Min = 200;
+                f1Min = ABSOLUTE_F1_MIN;
                 flag1 = true;
             }
-            if(f1Max > 800)
+            if(f1Max > ABSOLUTE_F1_MAX)
             {
-                f1Max = 800;
+                f1Max = ABSOLUTE_F1_MAX;
                 flag1 = true;
             }
-            if(f2Min < 500)
+            if(f2Min < ABSOLUTE_F2_MIN)
             {
-                f2Min = 500;
+                f2Min = ABSOLUTE_F2_MIN;
                 flag1 = true;
             }
-            if(f2Max > 1800)
+            if(f2Max > ABSOLUTE_F2_MAX)
             {
-                f2Max = 1800;
+                f2Max = ABSOLUTE_F2_MAX;
                 flag1 = true;
             }
-            if(f1Step < 50)
+            if(f1Step < ABSOLUTE_F1_STEP_MIN)
             {
-                f1Step = 50;
+                f1Step = ABSOLUTE_F1_STEP_MIN;
                 flag1 = true;
             }
-            if(f1Step > 1000)
+            if(f1Step > ABSOLUTE_F1_STEP_MAX)
             {
-                f1Step = 1000;
+                f1Step = ABSOLUTE_F1_STEP_MAX;
                 flag1 = true;
             }
-            if(f2Step < 100)
+            if(f2Step < ABSOLUTE_F2_STEP_MIN)
             {
-                f2Step = 100;
+                f2Step = ABSOLUTE_F2_STEP_MIN;
                 flag1 = true;
             }
-            if(f2Step > 1000)
+            if(f2Step > ABSOLUTE_F2_STEP_MAX)
             {
-                f2Step = 1000;
+                f2Step = ABSOLUTE_F2_STEP_MAX;
                 flag1 = true;
             }
-            if(plotHeight < 200)
+            if(plotHeight < MIN_PLOT_HEIGHT)
             {
-                plotHeight = 200;
+                plotHeight = MIN_PLOT_HEIGHT;
                 flag1 = true;
             }
             if(plotHeight > MAX_PLOT_HEIGHT)
@@ -709,9 +707,9 @@ public class JPlotFormants extends JFrame
                 plotHeight = MAX_PLOT_HEIGHT;
                 flag1 = true;
             }
-            if(plotWidth < 300)
+            if(plotWidth < MIN_PLOT_WIDTH)
             {
-                plotWidth = 300;
+                plotWidth = MIN_PLOT_WIDTH;
                 flag1 = true;
             }
             if(plotWidth > MAX_PLOT_WIDTH)
@@ -1064,7 +1062,7 @@ public class JPlotFormants extends JFrame
             helppage = new HelpPage(true);
         else
         if(obj == helpMenuItems[2])
-            JOptionPane.showMessageDialog(null, "JPlotFormants v1.4\n(c) Roger Billerey-Mosier 2001\nrogthefrog@gmail.com\nAfter Plot Formants by P. Ladefoged\nEllipse code help by Marek Przezdziecki", "About JPlotFormants", 1);
+            JOptionPane.showMessageDialog(null, "JPlotFormants v1.4.1\n(c) Roger Billerey-Mosier 2001\nrogthefrog@gmail.com\nAfter Plot Formants by P. Ladefoged\nEllipse code help by Marek Przezdziecki", "About JPlotFormants", 1);
         else
         if(obj == fileMenuItems[5])
             exitProgram(setHasBeenModified);
@@ -1199,7 +1197,7 @@ public class JPlotFormants extends JFrame
             {
                 if(flag2)
                 {
-                    if(point1.getX() < f1Min && point1.getX() >= 50)
+                    if(point1.getX() < f1Min && point1.getX() >= ABSOLUTE_F1_MIN)
                     {
                         if(offerToAdjustOptions("F1", "low", "minimum") == 0)
                         {
@@ -1210,13 +1208,13 @@ public class JPlotFormants extends JFrame
                             f1Field.grabFocus();
                         }
                     } else
-                    if(point1.getX() < 50)
+                    if(point1.getX() < ABSOLUTE_F1_MIN)
                     {
                         flag2 = false;
                         JOptionPane.showMessageDialog(null, "This F1 value is too low.\nPlease enter a value between " + f1Min + " and " + f1Max + ".", "F1 value too low", 2);
                         f1Field.grabFocus();
                     } else
-                    if(point1.getX() > f1Max && point1.getX() <= 1400)
+                    if(point1.getX() > f1Max && point1.getX() <= ABSOLUTE_F1_MAX)
                     {
                         if(offerToAdjustOptions("F1", "high", "maximum") == 0)
                         {
@@ -1227,14 +1225,14 @@ public class JPlotFormants extends JFrame
                             f1Field.grabFocus();
                         }
                     } else
-                    if(point1.getX() > 1400)
+                    if(point1.getX() > ABSOLUTE_F1_MAX)
                     {
                         flag2 = false;
                         JOptionPane.showMessageDialog(null, "This F1 value is too high.\nPlease enter a value between " + f1Min + " and " + f1Max + ".", "F1 value too high", 2);
                         f1Field.grabFocus();
                     }
                     if(flag2)
-                        if(point1.getY() < f2Min && point1.getY() >= 300)
+                        if(point1.getY() < f2Min && point1.getY() >= ABSOLUTE_F2_MIN)
                         {
                             if(offerToAdjustOptions("F2", "low", "minimum") == 0)
                             {
@@ -1245,13 +1243,13 @@ public class JPlotFormants extends JFrame
                                 f2Field.grabFocus();
                             }
                         } else
-                        if(point1.getY() < 300)
+                        if(point1.getY() < ABSOLUTE_F2_MIN)
                         {
                             flag2 = false;
                             JOptionPane.showMessageDialog(null, "This F2 value is too low.\nPlease enter a value between " + f2Min + " and " + f2Max + ".", "F2 value too low", 2);
                             f2Field.grabFocus();
                         } else
-                        if(point1.getY() > f2Max && point1.getY() <= 4000)
+                        if(point1.getY() > f2Max && point1.getY() <= ABSOLUTE_F2_MAX)
                         {
                             if(offerToAdjustOptions("F2", "high", "maximum") == 0)
                             {
@@ -1262,7 +1260,7 @@ public class JPlotFormants extends JFrame
                                 f2Field.grabFocus();
                             }
                         } else
-                        if(point1.getY() > 4000)
+                        if(point1.getY() > ABSOLUTE_F2_MAX)
                         {
                             flag2 = false;
                             JOptionPane.showMessageDialog(null, "This F2 value is too high.\nPlease enter a value between " + f2Min + " and " + f2Max + ".", "F2 value too high", 2);
@@ -1367,7 +1365,7 @@ public class JPlotFormants extends JFrame
         {
             System.err.println("Can't set look and feel: " + exception);
         }
-        SplashWindow3 splashwindow3 = new SplashWindow3("JPlotFormantsSplash.gif", null, 4000);
+        SplashWindow3 splashwindow3 = new SplashWindow3("JPlotFormantsSplash.gif", null, 2000);
         JPlotFormants jplotformants = new JPlotFormants();
     }
 
@@ -1475,7 +1473,7 @@ public class JPlotFormants extends JFrame
     private static final int ABSOLUTE_F1_MIN = 50;
     private static final int ABSOLUTE_F1_MAX = 1400;
     private static final int DEFAULT_F2_MIN = 500;
-    private static final int DEFAULT_F2_MAX = 1800;
+    private static final int DEFAULT_F2_MAX = 2700;
     private static final int ABSOLUTE_F2_MIN = 300;
     private static final int ABSOLUTE_F2_MAX = 4000;
     private static final int DEFAULT_F1_STEP = 100;
@@ -1553,19 +1551,5 @@ public class JPlotFormants extends JFrame
     private final FormantFilter fFilter = new FormantFilter();
     private final int DIMENSIONS_ONLY = 0;
     private final int DRAWING_OPTIONS_ONLY = 1;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 }
